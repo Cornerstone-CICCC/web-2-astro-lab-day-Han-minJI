@@ -5,18 +5,20 @@ import { getCollection } from "astro:content";
 const posts = await getCollection('projects')
 ---
 
-<Layout>
+<Layout title="Projects">
   <h1>Projects</h1>
   <p>These are my projects</p>
 
   <ul>
-    {posts.map(post => {
+    {posts.map(post => 
+    (
       <li>
+        {post.data.title}
         <a href={`/projects/${post.data.id}`}>
-          {post.data.title} - {post.data.author}
+          Read More
         </a>
       </li>
-    })}
+    ))}
   </ul>
 </Layout>
 
